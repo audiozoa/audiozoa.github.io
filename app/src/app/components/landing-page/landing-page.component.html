@@ -1,0 +1,19 @@
+
+<!--<div  class="container flex font-size-percent-500">-->
+<div [@fadeInFadeOut]="fontFadeIn ? 'fadeIn' : 'fadeOut'" class="container font-size-percent-500">
+  <div>
+    <select class="height" [(ngModel)]="chosenFont">
+      <option *ngFor="let font of fonts" [ngValue]="font">{{font.name}}</option>
+    </select>
+
+    <div [style.margin-top.px]="10" [ngClass]="chosenFont.classRef">{{chosenFont.name}}</div>
+  </div>
+
+</div>
+
+<div style="margin-top: 40px;" class="container font-size-percent-1000 flex-v-center">
+  <div (click)="unlockFontChange()" class="pointer margin-40" [ngClass]="chosenFont.classRef">
+    <span *ngFor="let character of name">{{character}}</span>
+  </div>
+</div>
+
